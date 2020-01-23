@@ -14,6 +14,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
@@ -30,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Raspberry-Pi-Updater" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -39,7 +42,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager">
     <configuration name="main.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/main.js" working-dir="$PROJECT_DIR$">
@@ -74,6 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579800231499</updated>
       <workItem from="1579800234814" duration="5296000" />
+      <workItem from="1579806576532" duration="697000" />
     </task>
     <servers />
   </component>
@@ -81,6 +85,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="126" key="#Notifications" timestamp="1579807311476">
+      <screen x="0" y="0" width="1920" height="935" />
+    </state>
+    <state x="552" y="126" key="#Notifications/0.0.1920.935@0.0.1920.935" timestamp="1579807311476" />
     <state x="552" y="126" key="#Usage_Scope" timestamp="1579803979645">
       <screen x="0" y="0" width="1920" height="935" />
     </state>
@@ -105,9 +113,9 @@
       <screen x="0" y="0" width="1920" height="935" />
     </state>
     <state width="1899" height="231" key="GridCell.Tab.0.right/0.0.1920.935@0.0.1920.935" timestamp="1579806421806" />
-    <state x="461" y="110" key="SettingsEditor" timestamp="1579803997796">
+    <state x="461" y="110" key="SettingsEditor" timestamp="1579807322719">
       <screen x="0" y="0" width="1920" height="935" />
     </state>
-    <state x="461" y="110" key="SettingsEditor/0.0.1920.935@0.0.1920.935" timestamp="1579803997796" />
+    <state x="461" y="110" key="SettingsEditor/0.0.1920.935@0.0.1920.935" timestamp="1579807322719" />
   </component>
 </project>

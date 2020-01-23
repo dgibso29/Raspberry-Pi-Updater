@@ -19,4 +19,4 @@ function CheckForNewVersion() {
     console.log("Oh boy, this worked!");
 }
 
-setTimeout(CheckForNewVersion, 500);
+setInterval(CheckForNewVersion, 60000);
