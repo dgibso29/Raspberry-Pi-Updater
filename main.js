@@ -16,7 +16,8 @@ console.log("Server running at http://127.0.0.1:3025/");
 
 // Checks the FTP server version file against the locally installed version.
 function CheckForNewVersion() {
-    console.log("Oh boy, this worked!");
+
+
 }
 
 setInterval(CheckForNewVersion, 60000);

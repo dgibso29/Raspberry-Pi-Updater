@@ -42,14 +42,25 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.main.js">
     <configuration name="main.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/main.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.test" />
         <item itemvalue="Node.js.main.js" />
       </list>
     </recent_temporary>
@@ -77,18 +88,54 @@
       <option name="presentableId" value="Default" />
       <updated>1579800231499</updated>
       <workItem from="1579800234814" duration="5296000" />
-      <workItem from="1579806576532" duration="697000" />
+      <workItem from="1579806576532" duration="2737000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="126" key="#Notifications" timestamp="1579807311476">
+    <state x="552" y="126" key="#Notifications" timestamp="1579808089978">
       <screen x="0" y="0" width="1920" height="935" />
     </state>
-    <state x="552" y="126" key="#Notifications/0.0.1920.935@0.0.1920.935" timestamp="1579807311476" />
+    <state x="552" y="126" key="#Notifications/0.0.1920.935@0.0.1920.935" timestamp="1579808089978" />
     <state x="552" y="126" key="#Usage_Scope" timestamp="1579803979645">
       <screen x="0" y="0" width="1920" height="935" />
     </state>
@@ -97,25 +144,25 @@
       <screen x="0" y="0" width="1920" height="935" />
     </state>
     <state x="751" y="226" key="FileChooserDialogImpl/0.0.1920.935@0.0.1920.935" timestamp="1579806416825" />
-    <state width="1899" height="231" key="GridCell.Tab.0.bottom" timestamp="1579806421806">
+    <state width="1899" height="231" key="GridCell.Tab.0.bottom" timestamp="1579813462003">
       <screen x="0" y="0" width="1920" height="935" />
     </state>
-    <state width="1899" height="231" key="GridCell.Tab.0.bottom/0.0.1920.935@0.0.1920.935" timestamp="1579806421806" />
-    <state width="1899" height="231" key="GridCell.Tab.0.center" timestamp="1579806421806">
+    <state width="1899" height="231" key="GridCell.Tab.0.bottom/0.0.1920.935@0.0.1920.935" timestamp="1579813462003" />
+    <state width="1899" height="231" key="GridCell.Tab.0.center" timestamp="1579813462003">
       <screen x="0" y="0" width="1920" height="935" />
     </state>
-    <state width="1899" height="231" key="GridCell.Tab.0.center/0.0.1920.935@0.0.1920.935" timestamp="1579806421806" />
-    <state width="1899" height="231" key="GridCell.Tab.0.left" timestamp="1579806421806">
+    <state width="1899" height="231" key="GridCell.Tab.0.center/0.0.1920.935@0.0.1920.935" timestamp="1579813462003" />
+    <state width="1899" height="231" key="GridCell.Tab.0.left" timestamp="1579813462003">
       <screen x="0" y="0" width="1920" height="935" />
     </state>
-    <state width="1899" height="231" key="GridCell.Tab.0.left/0.0.1920.935@0.0.1920.935" timestamp="1579806421806" />
-    <state width="1899" height="231" key="GridCell.Tab.0.right" timestamp="1579806421806">
+    <state width="1899" height="231" key="GridCell.Tab.0.left/0.0.1920.935@0.0.1920.935" timestamp="1579813462003" />
+    <state width="1899" height="231" key="GridCell.Tab.0.right" timestamp="1579813462003">
       <screen x="0" y="0" width="1920" height="935" />
     </state>
-    <state width="1899" height="231" key="GridCell.Tab.0.right/0.0.1920.935@0.0.1920.935" timestamp="1579806421806" />
-    <state x="461" y="110" key="SettingsEditor" timestamp="1579807322719">
+    <state width="1899" height="231" key="GridCell.Tab.0.right/0.0.1920.935@0.0.1920.935" timestamp="1579813462003" />
+    <state x="461" y="110" key="SettingsEditor" timestamp="1579813522998">
       <screen x="0" y="0" width="1920" height="935" />
     </state>
-    <state x="461" y="110" key="SettingsEditor/0.0.1920.935@0.0.1920.935" timestamp="1579807322719" />
+    <state x="461" y="110" key="SettingsEditor/0.0.1920.935@0.0.1920.935" timestamp="1579813522998" />
   </component>
 </project>
