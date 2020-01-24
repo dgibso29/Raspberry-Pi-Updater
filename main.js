@@ -13,7 +13,7 @@ server.listen(3025);
 // Put a friendly message on the terminal
 console.log("Server running at http://127.0.0.1:3025/");
 setInterval(CheckForNewVersion, 60000);
-
+GetFTPServerVersion();
 
 // Checks the FTP server version file against the locally installed version.
 function CheckForNewVersion() {
@@ -21,49 +21,77 @@ function CheckForNewVersion() {
     var currVersion = GetFTPServerVersion();
     var installedVersion = GetInstalledVersion();
 
-    if(currVersion == installedVersion)
-    {
+    if (currVersion == installedVersion) {
         return;
     }
     // If we got here, it's time to update.
 }
 
-function GetFTPServerVersion()
-{
+function GetFTPServerVersion() {
     var currentVersion = "";
 
     var Client = require('ftp');
 
     var c = new Client();
-    c.on('ready', function() {
-        c.list(function(err, list) {
-            if (err) throw err;
-            console.dir(list);
-            c.end();
+    var config = {
+        host: "10.146.0.110",
+        user: "FCS-DEV02\\Fluid",
+        password: "Password1!"
+    };
+
+    c.connect(config);
+    console.log("huh");
+    c.get('LatestProbeVersion/ProbeVersion.json', false, function (err, responseStream) {
+        if (err) throw err;
+        // console.log(err)
+        // responseStream.setEncoding('utf8');
+        //
+        //console.log(responseStream);
+        //
+        //
+        // console.log("ha ha loser");
+
+        console.log("Okay...")
+        var content = '';
+        responseStream.on('data', function (chunk)
+        {
+            content += chunk.toString();
         });
-    });
-    // connect to localhost:21 as anonymous
-    c.connect('10.146.0.110', 21, 'Fluid', 'Password1!');
-    c.get()
+        responseStream.on('end', function ()
+        {
+            console.log(content)
+
+            JSON.parse(content), function(key, value){
+               console.log("Key is " + key);
+               console.log("value is " + value);
+            });
+
+        });
+        console.log(content.toString());
+    })
+
+
     c.end();
+
+    console.log(currentVersion);
+    console.log("???");
+
 
     return currentVersion;
 }
 
-function GetInstalledVersion()
-{
+function GetInstalledVersion() {
     var installedVersion = "";
 
     return installedVersion;
 }
 
-function GetUpdatedVersion()
-{
+function GetUpdatedVersion() {
     var Client = require('ftp');
 
     var c = new Client();
-    c.on('ready', function() {
-        c.list(function(err, list) {
+    c.on('ready', function () {
+        c.list(function (err, list) {
             if (err) throw err;
             console.dir(list);
             c.end();
