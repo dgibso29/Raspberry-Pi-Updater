@@ -13,13 +13,17 @@ server.listen(3025);
 // Put a friendly message on the terminal
 console.log("Server running at http://127.0.0.1:3025/");
 setInterval(CheckForNewVersion, 60000);
-GetFTPServerVersion();
+var test = GetFTPServerVersion();
+
+console.log("Got here! Value is " + test);
 
 // Checks the FTP server version file against the locally installed version.
-function CheckForNewVersion() {
+async function CheckForNewVersion() {
 
     var currVersion = GetFTPServerVersion();
     var installedVersion = GetInstalledVersion();
+
+
 
     if (currVersion == installedVersion) {
         return;
@@ -27,8 +31,8 @@ function CheckForNewVersion() {
     // If we got here, it's time to update.
 }
 
-function GetFTPServerVersion() {
-    var currentVersion = "";
+async function GetFTPServerVersion() {
+    var currentVersion = "default value";
 
     var Client = require('ftp');
 
@@ -44,7 +48,7 @@ function GetFTPServerVersion() {
     c.get('LatestProbeVersion/ProbeVersion.json', false, function (err, responseStream) {
         if (err) throw err;
         // console.log(err)
-        // responseStream.setEncoding('utf8');
+        //responseStream.setEncoding('utf8');
         //
         //console.log(responseStream);
         //
@@ -56,27 +60,26 @@ function GetFTPServerVersion() {
         responseStream.on('data', function (chunk)
         {
             content += chunk.toString();
+            console.log(content);
         });
         responseStream.on('end', function ()
         {
-            console.log(content)
+            console.log(content);
 
-            JSON.parse(content), function(key, value){
-               console.log("Key is " + key);
-               console.log("value is " + value);
-            });
+             JSON.parse(content, function(key, value){
+                 if(key == "Version")
+                     currentVersion == value;
+             });
 
         });
         console.log(content.toString());
+
     })
-
-
     c.end();
 
-    console.log(currentVersion);
-    console.log("???");
-
-
+    console.log("Wait time?");
+    await new Promise(r => setTimeout(r, 2000));
+console.log("???SIFJF");
     return currentVersion;
 }
 
