@@ -40,8 +40,10 @@ async function CheckForNewVersion() {
     console.log('Installed version is ' + installedVersion);
 
     if (currVersion == installedVersion) {
+        console.log("Current version is latest.")
         return;
         }
+    console.log("Version mismatch. Fetching newest version.")
     // If we got here, it's time to update.
     await GetUpdatedVersion();
 
@@ -108,7 +110,7 @@ async function GetInstalledVersion() {
         });
     });
 }
-catch{
+catch(err){
         // Weep.
 }
 
