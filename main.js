@@ -21,7 +21,7 @@ server.listen(3025);*/
 
 // Put a friendly message on the terminal
 //console.log("Server running at http://127.0.0.1:3025/");
-setInterval(CheckForNewVersions, 5000);
+setInterval(CheckForNewVersions, 60000);
 
 function CreateFileStructure()
 {
