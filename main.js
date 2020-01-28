@@ -16,7 +16,7 @@ server.listen(3025);*/
 
 // Put a friendly message on the terminal
 //console.log("Server running at http://127.0.0.1:3025/");
-setInterval(CheckForNewVersion, 5000);
+setInterval(CheckForNewVersion, 60000);
 
 function GetUpdaterConfig()
 {
@@ -54,6 +54,8 @@ async function GetFTPServerVersion() {
 
     var Client = require('ftp');
 
+    var content = '';
+
     var c = new Client();
     var clientConfig = {
         host: config.FtpHost,
@@ -68,7 +70,6 @@ async function GetFTPServerVersion() {
     c.get(path, false, function (err, responseStream) {
         if (err) throw err;
 
-        var content = '';
         responseStream.on('data', function (chunk)
         {
             content += chunk.toString();
@@ -77,17 +78,17 @@ async function GetFTPServerVersion() {
         responseStream.on('end', function ()
         {
             //console.log(content);
-
-             JSON.parse(content, function(key, value){
-                 if(key == "Version")
-                     currentVersion = value;
-             });
         });
         //console.log(content.toString());
 
     })
     c.end();
     await new Promise(r => setTimeout(r, 500));
+
+    JSON.parse(content, function(key, value){
+        if(key == "Version")
+            currentVersion = value;
+    });
 
     return currentVersion;
 }
