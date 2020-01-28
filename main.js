@@ -2,8 +2,13 @@
 var http = require('http');
 var fs = require('fs');
 var ftp = require('basic-ftp');
+var path = require('path');
+var appDir = path.dirname(require.main.filename);
 
-let config;
+
+CreateFileStructure();
+let configs = [];
+GetUpdaterConfigs();
 
 // Configure our HTTP server to respond with Hello World to all requests.
 /*var server = http.createServer(function (request, response) {
@@ -16,40 +21,75 @@ server.listen(3025);*/
 
 // Put a friendly message on the terminal
 //console.log("Server running at http://127.0.0.1:3025/");
-setInterval(CheckForNewVersion, 60000);
+setInterval(CheckForNewVersions, 5000);
 
-function GetUpdaterConfig()
+function CreateFileStructure()
 {
-    fs.readFile('/home/pi/NAPS/UpdaterConfig.json', (err, data) => {
+    if(fs.existsSync(appDir + "/Data"))
+    {
+        return;
+    }
+    fs.mkdirSync(appDir + "/Data")
+}
+
+function GetUpdaterConfigs()
+{
+    var dirPath = appDir + "/Data/";
+    //console.log(dirPath);
+    fs.readdirSync(dirPath).forEach(file =>{
+        if(file.includes('.json')) {
+            //console.log(file);
+           var currentConfig = fs.readFileSync(dirPath + file);
+           //console.log(currentConfig.toString());
+           configs.push(JSON.parse(currentConfig.toString()));
+        }
+    })
+
+    configs.forEach(c =>{
+        console.log(c);
+    })
+
+
+    /*fs.readFile('/home/pi/NAPS/UpdaterConfig.json', (err, data) => {
         if (err) throw err;
         //console.log(data.toString());
         config = JSON.parse(data.toString());
         //console.log(config);
-    })
+    })*/
+}
+
+async function CheckForNewVersions()
+{
+    for (const c of configs) {
+        //console.log(c)
+        await CheckForNewVersion(c);
+    }
 }
 
 // Checks the FTP server version file against the locally installed version.
-async function CheckForNewVersion() {
-    config = GetUpdaterConfig();
+async function CheckForNewVersion(config) {
+    //config = GetUpdaterConfigs();
+
+    console.log("Checking " + config.Application + " for updates...")
     await new Promise(r => setTimeout(r, 500));
 
-    var currVersion = await GetFTPServerVersion();
-    var installedVersion = await GetInstalledVersion();
+    var currVersion = await GetFTPServerVersion(config);
+    var installedVersion = await GetInstalledVersion(config);
 
     console.log('Latest version is ' + currVersion);
     console.log('Installed version is ' + installedVersion);
 
     if (currVersion == installedVersion) {
-        console.log("Current version is latest.")
+        console.log("Current version is latest.\n")
         return;
         }
-    console.log("Version mismatch. Fetching newest version.")
+    console.log("Version mismatch. Fetching newest version.\n")
     // If we got here, it's time to update.
-    await GetUpdatedVersion();
+    await GetUpdatedVersion(config);
 
 }
 
-async function GetFTPServerVersion() {
+async function GetFTPServerVersion(config) {
     var currentVersion = "";
 
     var Client = require('ftp');
@@ -93,10 +133,10 @@ async function GetFTPServerVersion() {
     return currentVersion;
 }
 
-async function GetInstalledVersion() {
+async function GetInstalledVersion(config) {
     var installedVersion = "Not Found";
 
-    console.log("Got here");
+    //console.log("Got here");
 
     var path = "";
     path = path.concat(config.LocalDir, config.VersionFilePath);
@@ -120,7 +160,7 @@ catch(err){
     return installedVersion;
 }
 
-async function GetUpdatedVersion() {
+async function GetUpdatedVersion(config) {
     var client = new ftp.Client()
     client.ftp.verbose = true
     try {
