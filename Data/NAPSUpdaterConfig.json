@@ -1,5 +1,6 @@
 {
     "Application" : "NAPS",
+    "UpdateIntervalMilliseconds" : 1000,
     "FtpHost" : "10.146.0.110",
     "FtpPort" : "21",
     "User" : "FCS-DEV02\\Fluid",
