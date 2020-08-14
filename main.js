@@ -149,6 +149,7 @@ async function GetInstalledVersion(config) {
     try{
     fs.readFile(path, (err, data) => {
         //if (err) throw err;
+        console.log("data: " + data); 
         //console.log(data.toString());
         var versionJson = JSON.parse(data.toString(), function (key, value) {
             if (key == "Version")
