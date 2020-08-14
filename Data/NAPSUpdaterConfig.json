@@ -1,10 +1,10 @@
 {
     "Application" : "NAPS",
     "UpdateIntervalMilliseconds" : 1000,
-    "FtpHost" : "10.146.0.110",
+    "FtpHost" : "",
     "FtpPort" : "21",
-    "User" : "FCS-DEV02\\Fluid",
-    "Password" : "Password1!",
+    "User" : "",
+    "Password" : "",
     "LocalDir" : "/home/pi/NAPS/",
     "RemoteDir" : "LatestProbeVersion/",
     "VersionFilePath" : "ProbeVersion.json"
