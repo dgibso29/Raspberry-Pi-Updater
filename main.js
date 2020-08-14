@@ -144,6 +144,7 @@ async function GetInstalledVersion(config) {
 
     var path = "";
     path = path.concat(config.LocalDir, config.VersionFilePath);
+    print("Path: " + path);
 
     try{
     fs.readFile(path, (err, data) => {
@@ -156,7 +157,7 @@ async function GetInstalledVersion(config) {
     });
 }
 catch(err){
-    print(err)
+    print(err);
         // Weep.
 }
 
