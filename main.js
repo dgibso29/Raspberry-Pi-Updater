@@ -156,6 +156,7 @@ async function GetInstalledVersion(config) {
     });
 }
 catch(err){
+    print(err)
         // Weep.
 }
 
